@@ -1,0 +1,39 @@
+body {
+  background: #f5f5f5;
+}
+
+h5 {
+  font-weight: 400;
+}
+
+.container_outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 400px;
+  height: auto;
+}
+
+.tabs .indicator {
+  background-color: #e0f2f1;
+  height: 60px;
+  opacity: 0.3;
+}
+
+.form-container {
+  padding: 40px;
+  padding-top: 10px;
+}
+
+.confirmation-tabs-btn {
+  position: absolute;
+}
+
+.input-field label {
+  pointer-events: none;
+}

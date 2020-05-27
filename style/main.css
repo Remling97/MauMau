@@ -1,0 +1,367 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  padding: 25px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+.room_overview_item {
+  padding: 25px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid;
+}
+
+.room_connect_button {
+  border: 1px solid;
+  padding: 5px 25px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.room_overview_title {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.rooms {
+  padding: 25px;
+  display: inline-block;
+}
+
+.room_overview_player_title {
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.room_overview_player {
+  color: #3867d6;
+}
+
+input#leave {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  border: 1px solid;
+  padding: 5px 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.buttons {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.buttons input {
+  background: white;
+  border: 1px solid;
+  padding: 5px 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.buttons label {
+  font-size: 23px;
+  margin-left: 10px;
+  display: inline-block;
+  margin: 10px 10px 0px;
+}
+
+.playfield {
+  position: fixed;
+  left: 0;
+  top: 35px;
+  width: 100%;
+  height: calc(100% - 35px);
+}
+
+.playfield>div {
+  height: 33.3333%;
+}
+
+.top_inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.enemy:last-child {
+  margin: 0;
+}
+
+.enemy {
+  margin-right: 15px;
+  position: relative;
+}
+
+.enemy.current_player::before, .enemy.current_player::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+.enemy.current_player::after {
+  right: 0;
+  top: 0;
+  border-right: 2px solid rgba(119, 140, 163, .75);
+  border-top: 2px solid rgba(119, 140, 163, .75);
+}
+
+.enemy.current_player::before {
+  left: 0;
+  bottom: 0;
+  border-left: 2px solid rgba(119, 140, 163, .75);
+  border-bottom: 2px solid rgba(119, 140, 163, .75);
+}
+
+.enemy_inner {
+  padding: 25px;
+}
+
+.enemy_inner_bottom span {
+  width: 48%;
+  display: inline-block;
+  padding: 0px 15px;
+}
+
+.enemy_inner_bottom>div {
+  text-align: left;
+  font-size: 20px;
+}
+
+.enemy_icon {
+  background-image: url(/images/enemy_player.png);
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+.mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center_card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center_card img.card {
+  height: 80%;
+}
+
+.playfield .bot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.my_cards::after {
+  content: "";
+  background: transparent;
+  width: 100%;
+  height: 50px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border: 2px solid rgba(119, 140, 163, .75);
+  transform: translateY(21%) rotateX(-235deg);
+}
+
+.my_cards.current_player::after {
+  background: rgba(69, 170, 242, .65);
+}
+
+.my_cards {
+  display: inline-block;
+  padding: 10px 50px;
+  position: relative;
+  height: 50%;
+}
+
+.my_cards .card:hover {
+  transform: scale(1.3);
+  bottom: 30px;
+}
+
+.my_cards .card {
+  height: 100%;
+  cursor: pointer;
+  display: inline-block;
+  padding-right: 15px;
+  transition: all .3s ease-in-out;
+  position: relative;
+  bottom: 0;
+}
+
+.my_cards .card:last-child {
+  padding-right: 0;
+}
+
+.select_color {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  display: none;
+}
+
+.select_color .colors {
+  display: flex;
+}
+
+.select_color .title {
+  width: 100%;
+  padding: 25px;
+  text-align: center;
+  font-size: 27px;
+  color: rgba(119, 140, 163);
+  background: white;
+  border: 2px solid rgba(119, 140, 163, .75);
+  margin-bottom: 15px;
+}
+
+.select_color_inner {
+  position: relative;
+}
+
+.select_color .close {
+  position: absolute;
+  right: -18px;
+  top: -18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(119, 140, 163, .75);
+  text-align: center;
+  line-height: 31px;
+  color: rgba(119, 140, 163);
+  font-weight: bold;
+  background: white;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.selected_color.schell {
+  background-image: url(/images/card_colors/schell.png);
+}
+
+.selected_color.eichel {
+  background-image: url(/images/card_colors/eichel.png);
+}
+
+.selected_color.laub {
+  background-image: url(/images/card_colors/laub.png);
+}
+
+.selected_color.herz {
+  background-image: url(/images/card_colors/herz.png);
+}
+
+.selected_color:last-child {
+  margin: 0;
+}
+
+.selected_color {
+  height: 85px;
+  width: 85px;
+  margin-right: 10px;
+  z-index: 1;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+  border: 2px solid rgba(119, 140, 163, .75);
+  cursor: pointer;
+}
+
+.center_card .color_change {
+  font-size: 35px;
+  margin-left: 15px;
+  width: 80px;
+  height: 80px;
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  border: 2px solid rgba(119, 140, 163, .75);
+  display: none;
+}
+
+.winner {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10000;
+  display: none;
+  pointer-events: none;
+}
+
+.winner_inner {
+  border: 2px solid rgba(119, 140, 163, .75);
+  padding: 25px;
+  background: white;
+}
+
+.winnter_title {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.winner_text span {
+  font-size: 25px;
+  display: block;
+}
+
+span.winner_name {
+  font-size: 35px;
+  color: #f7b731;
+  margin: 10px 0px;
+}
+
+.winner_inner .wait {
+  margin-top: 28px;
+  font-size: 14px;
+}
+
+.winner_button .leave {
+  display: inline-block;
+  border: 2px solid rgba(119, 140, 163, .75);
+  padding: 5px 25px;
+  margin-top: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  pointer-events: all;
+}

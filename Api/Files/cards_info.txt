@@ -1,0 +1,11 @@
+Type:
+0 = Standart
+1 = Neuner
+2 = Ober
+3 = Ass
+
+color:
+0 = Herz
+1 = Laub
+2 = Eichel
+3 = Schell
